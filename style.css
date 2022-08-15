@@ -16,14 +16,13 @@ section{
     border-radius: 20px;
 }
 img{
-    height: 50%;
+    height: 200px;
 }
 input{
     width: 100px;
 }
 button{
-    /* position: absolute; */
-    /* margin-left: 100px; */
+   
     padding: 4px;
     color: aliceblue;
     background-color: black;

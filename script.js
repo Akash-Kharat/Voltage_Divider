@@ -11,13 +11,13 @@ function calculateVoltage(){
     if(r1range.value=="Kohm"){
         r1=r1*1000;
     }
-    else if(r1range=="Mohm"){
+    else if(r1range.value=="Mohm"){
         r1=r1*1000*1000;
     }
     if(r2range.value=="Kohm"){
         r2=r2*1000;
     }
-    else if(r2range=="Mohm"){
+    else if(r2range.value=="Mohm"){
         r2=r2*1000*1000;
     }
     let vo=(vs*r2)/(r1+r2)

@@ -20,11 +20,11 @@ function calculateVoltage() {
     }
 
 
-    
+
     if ((vs == 0) && (vout == 0)) {
         alert("Give either Input Voltage or Divder voltage")
     }
-    else {                          // checks if one the value is given
+    else {                          // checks if one the value is given then proceed further
         if (vs == 0) {            // if vs is given 
             if ((r1 == 0) | (r2 == 0)) {
                 if (r1 == 0) {
@@ -40,7 +40,19 @@ function calculateVoltage() {
                 document.getElementById("vs").value = vcc.toFixed(2)
             }
         }
-        else {       // if vout is given to find vs
+        else if( (vs != 0) && (vout != 0) ){  // both values are given but r1 or r2 is missing
+            if ((r1 != 0) &&(r2 == 0) ) // r2
+            {
+                let ans_r2 = (vout * r1) / (vs-vout)
+                document.getElementById("r2").value = ans_r2.toFixed(3)
+            }
+            else
+            {
+                let ans_r1 = ((vs-vout) * r2)/vout
+                document.getElementById("r1").value = ans_r1.toFixed(3)
+            }
+        }
+        else {       // if vout is given to find vs r1, r2 given
             if ((r1 == 0) | (r2 == 0)) {
                 if (r1 == 0) {
                     alert("Enter some value for R1 ");

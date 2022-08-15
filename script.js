@@ -1,10 +1,10 @@
-let r1range = document.getElementById("ohmranger1").value;
-let r2range = document.getElementById("ohmranger2").value;
-let vs = document.getElementById("vs").value;
-let r1 = document.getElementById("r1").value;
-let r2 = document.getElementById("r2").value;
-let vout = document.getElementById("vo").value;
 function calculateVoltage() {
+    let r1range = document.getElementById("ohmranger1").value;
+    let r2range = document.getElementById("ohmranger2").value;
+    let vs = document.getElementById("vs").value;
+    let r1 = document.getElementById("r1").value;
+    let r2 = document.getElementById("r2").value;
+    let vout = document.getElementById("vo").value;
 
     if (r1range == "Kohm") {          // calculating resistors values for once
         r1 = r1 * 1000;

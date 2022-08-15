@@ -15,13 +15,11 @@
     <section>
             <img src="./assets/Capture.PNG" alt="circuit" width="300px">
             <p>
-
                 \[Vout = Vcc({R2 \over R1+R2}).\]
                 </p>
             <div>
                 <label for="sourse_voltage">Source Voltage (VCC)</label>
                 <input type="number" id="vs" name="source_voltage"  min="0">
-
             </div>
             <br>
             <div>
@@ -46,7 +44,7 @@
             <br>
             <div>
                 <label for="output_voltage">Output Voltage (Vout)</label>
-                <input type="number" id="vo" name="output_voltage"  disabled min="">
+                <input type="number" id="vo" name="output_voltage"  min="0">
             </div>
             <br>
             <button onclick="calculateVoltage()">Calculate Voltage</button>

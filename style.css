@@ -1,0 +1,14 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: bisque;
+}
+
+section{
+    border: 5px solid rgb(70, 0, 128);
+    margin: 20px;
+    padding: 20px;
+    border-radius: 20px;
+}

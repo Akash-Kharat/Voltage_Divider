@@ -18,8 +18,9 @@ function calculateVoltage() {
     else if (r2range == "Mohm") {
         r2 = r2 * 1000000;
     }
-    if ((vs && vout && r1 && r2) != 0) {    // if all vales are non-zero return false
+    if ((vs != 0)&& (vout != 0 )&& (r1 != 0) &&( r2!= 0)) {    // if all vales are non-zero return false
         alert("Keep target value field to find it's value");
+        console.log(r1);
     } else {
         if ((vs == 0) && (vout == 0)) {
             alert("Give either Input Voltage or Divder voltage")
@@ -41,7 +42,7 @@ function calculateVoltage() {
                 }
             }
             else if ((vs != 0) && (vout != 0)) {  // both values are given but r1 or r2 is missing
-                if ((r1 != 0) && (r2 == 0)) // r2
+                if ((r1 != 0.00) && (r2 == 0)) // r2
                 {
                     let ans_r2 = (vout * r1) / (vs - vout)
                     document.getElementById("r2").value = ans_r2.toFixed(3)

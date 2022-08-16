@@ -5,7 +5,6 @@ function calculateVoltage() {
     let r1 = document.getElementById("r1").value;
     let r2 = document.getElementById("r2").value;
     let vout = document.getElementById("vo").value;
-
     if (r1range == "Kohm") {          // calculating resistors values for once
         r1 = r1 * 1000;
     }
@@ -37,39 +36,43 @@ function calculateVoltage() {
                     }
                 }
                 else {
-                    let vcc = (vout * (r1 + r2)) / r2
-                    document.getElementById("vs").value = vcc.toFixed(2)
+                    vs = ((vout * (r1 + r2)) / r2).toFixed(2)
+                    document.getElementById("vs").value = vs
                 }
             }
             else if ((vs != 0) && (vout != 0)) {  // both values are given but r1 or r2 is missing
                 if ((r1 != 0.00) && (r2 == 0)) // r2
                 {
-                    let ans_r2 = (vout * r1) / (vs - vout)
-                    document.getElementById("r2").value = ans_r2.toFixed(3)
+                    r2 = ((vout * r1) / (vs - vout)).toFixed(3)
+                    document.getElementById("r2").value = r2
                 }
                 else {
-                    let ans_r1 = ((vs - vout) * r2) / vout
-                    document.getElementById("r1").value = ans_r1.toFixed(3)
+                    r1 = (((vs - vout) * r2) / vout).toFixed(3)
+                    document.getElementById("r1").value = r1
                 }
+
             }
             else {       // if vout is given to find vs r1, r2 given
                 if ((r1 == 0) | (r2 == 0)) {
                     if (r1 == 0) {
                         alert("Enter some value for R1 ");
-                        // r1.style.backgroundColor = 'red';
                     }
                     else {
                         alert("Enter some value for R2 ");
                     }
                 }
                 else {
-                    let vo = (vs * r2) / (r1 + r2)
-                    document.getElementById("vo").value = vo.toFixed(2)
+                    vout = ((vs * r2) / (r1 + r2)).toFixed(2)
+                    document.getElementById("vo").value = vout
                 }
             }
         }
-
+        document.getElementById("img-r1").innerHTML = r1 + " Ohm";
+        document.getElementById("img-VCC").innerHTML = vs + " V";
+        document.getElementById("img-vout").innerHTML = vout + " V";
+        document.getElementById("img-r2").innerHTML = r2 + " Ohm";
     }
+    
 
 }
 

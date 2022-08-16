@@ -8,7 +8,6 @@ body{
         transform: translate(-50%, -50%);
     background-color: bisque;
 }
-
 section{
     border: 5px solid rgb(70, 0, 128);
     margin: 20px;
@@ -26,4 +25,24 @@ button{
     padding: 4px;
     color: aliceblue;
     background-color: black;
+}
+#img-r1{
+    position: absolute;
+    left: 230px;
+    top: 72px;
+}
+#img-VCC{
+    position: absolute;
+    left: 230px;
+    top: 30px;
+}
+#img-r2{
+    position: absolute;
+    left: 230px;
+    top: 150px;
+}
+#img-vout{
+    position: absolute;
+    left: 270px;
+    top: 100px;
 }

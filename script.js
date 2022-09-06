@@ -1,10 +1,51 @@
+button_disabled();  // bydefault button disabled  
+const inputs = document.querySelectorAll('input');
+let count = 0;
+inputs.forEach(e => {
+    // count value is not accessible outside the function  work on it 
+    e.addEventListener('change',function myfunc()
+    {     
+        if (e.value != ""){
+            count++;
+            console.log(count);
+            console.log(e.value);
+            console.log("Added ");
+        }
+        else{
+            count--;
+            console.log(count);
+            console.log(e.value);
+            console.log("Removed");
+        }
+        if(count > 2){
+            button_enabled();
+        }
+        else{
+            button_disabled();  
+        }
+    }) 
+});
+
+
+function button_disabled() {
+    document.getElementById("myBtn").disabled = true;
+    // console.log(document.getElementById("myBtn").disabled = true); // for debug
+    document.getElementById("myBtn").style.backgroundColor = 'Red';     
+    // console.log('Changed color to red'); 
+}
+function button_enabled() {
+    document.getElementById("myBtn").disabled = false;
+    // console.log(document.getElementById("myBtn").disabled = false);   // for debug
+    document.getElementById("myBtn").style.backgroundColor = 'Green'; 
+    // console.log('Changed color to green'); 
+}
 function calculateVoltage() {
     let r1range = document.getElementById("ohmranger1").value;
     let r2range = document.getElementById("ohmranger2").value;
-    let vs = document.getElementById("vs").value;
-    let r1 = document.getElementById("r1").value;
-    let r2 = document.getElementById("r2").value;
-    let vout = document.getElementById("vo").value;
+    let vs =parseInt(document.getElementById("vs").valueAsNumber);
+    let r1 = document.getElementById("r1").valueAsNumber;
+    let r2 = document.getElementById("r2").valueAsNumber;
+    let vout = document.getElementById("vo").valueAsNumber;
     if (r1range == "Kohm") {          // calculating resistors values for once
         r1 = r1 * 1000;
     }
@@ -17,22 +58,24 @@ function calculateVoltage() {
     else if (r2range == "Mohm") {
         r2 = r2 * 1000000;
     }
-    if ((vs != 0)&& (vout != 0 )&& (r1 != 0) &&( r2!= 0)) {    // if all vales are non-zero return false
-        alert("Keep target value field to find it's value");
-        console.log(r1);
+    console.log(vs,r1,r2,vout);
+    if ((vs != 0)&& (vout != 0)&& (r1 != 0) &&(r2!= 0)) {    // if all vales are non-zero return false
+        vout = 0
+        vout = ((vs * r2) / (r1 + r2)).toFixed(2);
+        document.getElementById("vo").value = vout;
     } else {
         if ((vs == 0) && (vout == 0)) {
             alert("Give either Input Voltage or Divder voltage")
         }
         else {                          // checks if one the value is given then proceed further
-            if (vs == 0) {            // if vs is given 
+            if (vs == 0) {            // if vout is given 
                 if ((r1 == 0) | (r2 == 0)) {
                     if (r1 == 0) {
-                        alert("Enter some value for R1 ");
-                        r1.style.backgroundColor = 'red';
+                        // alert("Enter some value for R1 ");
+                        document.getElementById('r1').style.backgroundColor = 'red';
                     }
                     else {
-                        alert("Enter some value for R2 ");
+                        // alert("Enter some value for R2 ");
                     }
                 }
                 else {
@@ -52,7 +95,7 @@ function calculateVoltage() {
                 }
 
             }
-            else {       // if vout is given to find vs r1, r2 given
+            else {       // if vs is given to find vs r1, r2 given
                 if ((r1 == 0) | (r2 == 0)) {
                     if (r1 == 0) {
                         alert("Enter some value for R1 ");

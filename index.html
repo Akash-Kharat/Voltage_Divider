@@ -6,10 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <script src="./script.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
+    
 </head>
 <body>
     <section>
@@ -24,12 +21,12 @@
                 </p>
             <div>
                 <label for="sourse_voltage">Source Voltage (VCC)</label>
-                <input type="number" id="vs" name="source_voltage"  min="0">
+                <input type="number" id="vs" name="calculas"  min="0" value="0">
             </div>
             <br>
             <div>
                 <label for="resistor1">Resistor 1 Value (R1)</label>
-                <input type="number" id="r1" name="resistor1"  min="0"> 
+                <input type="number" id="r1" name="calculas"  min="0" value="0"> 
                 <select name="ohmrange" id="ohmranger1">
                     <option value="ohm">&#x2126;</option>
                     <option value="Kohm">K &#x2126;</option>
@@ -39,7 +36,7 @@
             <br>
             <div>
                 <label for="resistor2">Resistor 2 Value (R2)</label>
-                <input type="number" id="r2" name="resistor2" min="0">
+                <input type="number" id="r2" name="calculas" min="0" value="0">
                 <select name="ohmrange" id="ohmranger2">
                     <option value="ohm">&#x2126;</option>
                     <option value="Kohm">K &#x2126;</option>
@@ -49,10 +46,14 @@
             <br>
             <div>
                 <label for="output_voltage">Output Voltage (Vout)</label>
-                <input type="number" id="vo" name="output_voltage"  min="0">
+                <input type="number" id="vo" name="calculas"  min="0" value="0">
             </div>
             <br>
-            <button onclick="calculateVoltage()">Calculate Voltage</button>
+            <button id="myBtn" onclick="calculateVoltage()">Calculate Voltage</button>
     </section>
+    <script src="./script.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 </body>
 </html>
